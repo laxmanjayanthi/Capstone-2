@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 20%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.registerbtn {
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+
+a {
+  color: dodgerblue;
+}
+
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<center>
+<body>
+
+<form action="register" method="post">
+  {%csrf_token %}
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    <label for="First Name"><b><!–– enter the label––>First Name:</b></label><br>
+    <input type="text" placeholder="Enter First Name" name="first_name" id="First Name" required><br>
+
+    <label for="Last Name"><b><!–– enter the label––>Last Name:</b></label><br>
+    <input type="text" placeholder="Enter Last Name" name="last_name" id="Last Name" required><br>
+
+    <label for="userName"><b><!–– enter the label––>UserName:</b></label><br>
+    <input type="text" placeholder="Enter username" name="username" id="UserName" required><br>
+
+    <label for="accno"><b><!–– enter the label––>Registered Account Number:</b></label><br>
+    <input type="text" placeholder="Enter Account Number" name="accno" id="accno" required><br>
+
+    <label for="email"><b><!–– enter the label––>E-mail:</b></label><br>
+    <input type="text" placeholder="Enter E-mail" name="email" id="email" required><br>
+
+
+    <label for="psw"><b><!–– enter the label––>Password:</b></label><br>
+    <input type="password" placeholder="Enter Password" name="password1" id="psw" required><br>
+
+    <label for="psw-repeat"><b><!–– enter the label––>Confirm Password:</b></label><br>
+    <input type="password" placeholder="Repeat Password" name="password2" id="psw-repeat" required><br>
+    <hr>
+
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+</form>
+
+<div>
+  {% for message in messages %}
+  <h3> {{message}} </h3>
+  {% endfor %}
+</div>
+
+</body>
+  </center>
+</html>
+
